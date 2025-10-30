@@ -56,6 +56,7 @@ class MedicalCameraController:
         self.arduino_status = None
         self.camera_status = None
         self.button_status = None
+        self.led_status = None  # Новый статус для светодиодов
         self.start_camera_btn = None
         self.stop_camera_btn = None
         self.take_photo_btn = None
@@ -119,6 +120,9 @@ class MedicalCameraController:
         
         self.camera_status = ttk.Label(info_frame, text="Камера: ВЫКЛ", foreground="red")
         self.camera_status.pack(anchor=tk.W)
+        
+        self.led_status = ttk.Label(info_frame, text="Светодиоды: ВЫКЛ", foreground="red")
+        self.led_status.pack(anchor=tk.W)
         
         self.button_status = ttk.Label(info_frame, text="Кнопка: Готова", foreground="blue")
         self.button_status.pack(anchor=tk.W)
@@ -426,6 +430,11 @@ class MedicalCameraController:
         camera_text = "Камера: ВКЛ" if self.camera_active else "Камера: ВЫКЛ"
         camera_color = "green" if self.camera_active else "red"
         self.camera_status.config(text=camera_text, foreground=camera_color)
+        
+        # Новый статус для светодиодов
+        led_text = "Светодиоды: ВКЛ" if self.camera_active else "Светодиоды: ВЫКЛ"
+        led_color = "green" if self.camera_active else "red"
+        self.led_status.config(text=led_text, foreground=led_color)
         
     def update_button_status(self, message):
         """Обновление статуса кнопки"""
