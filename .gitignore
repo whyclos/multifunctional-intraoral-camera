@@ -21,7 +21,4 @@ wheels/
 *.egg
 
 # Project specific
-medical_images/          # Исключаем папку с снимками
-temp_images/            # Временные файлы
-*.jpg                   # Тестовые изображения
-*.png
+medical_images/          # Исключаем папку со снимками
